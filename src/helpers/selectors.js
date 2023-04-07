@@ -1,4 +1,4 @@
-function matchingIds(appointments, appIds) {
+function matchingIds(appointments, appIds) { //need to change naming convention of properties cause used by 2 functions
     const matchedIds = appIds.map(appId => appointments[appId]);
     return matchedIds;
 }
@@ -14,24 +14,19 @@ export function getAppointmentsForDay(state, day) {
     return matchingIds(state.appointments, appArray);
 }
 
-export function getInterview(state, interview) {
-    /* have to return
-    {
-    student: Lydia Miller-Jones,
-    interviewer: {
-        id: 1,
-        name: Sylvia Palmer,
-        avatar: https://i.imgur.com/LpaY82x.png"
+export function getInterviewersForDay(state, day) {
+    let interviewerArray = [];
+
+    state.days.map((dayObject) => {
+        if (dayObject.name === day) {
+            return dayObject.interviewers.forEach(interviewerId => interviewerArray.push(interviewerId))
         }
-    }
-    interview = state.appointments.interview["3"].interview
-    interview.interviewer === state.interviewers[interviewer].id
-    -- so this means that the interview arg passed will be the one we need to pull from state
-    -- compare the interviewer passed (id) to the one stored in state
-    -- return relevant information
-    -- move interviewers object in state to array?
-    -- then filter to match the interview.interviewer (id)?
-    */
+    })
+    return matchingIds(state.interviewers, interviewerArray);
+}
+
+export function getInterview(state, interview) {
+
     if (interview === null) {
         return null;
     }
