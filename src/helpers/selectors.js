@@ -31,18 +31,9 @@ export function getInterview(state, interview) {
         return null;
     }
 
-    for (const interviewerObject in state.interviewers) {
-        if (state.interviewers[interviewerObject].id === interview.interviewer) {
-            const interviewObject = {
-                student: interview.student,
-                interviewer: {
-                    id: state.interviewers[interviewerObject].id,
-                    name: state.interviewers[interviewerObject].name,
-                    avatar: state.interviewers[interviewerObject].avatar
-                }
-            }
-
-            return interviewObject;
-        }
+    const interviewerInfo = state.interviewers[interview.interviewer]
+    return {
+        student: interview.student,
+        interviewer: interviewerInfo
     }
 }
