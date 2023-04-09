@@ -40,7 +40,6 @@ export default function Application(props) {
       setState({...state, appointments})
       return res
     })
-    .catch(err => console.log(err))
   }
   function deleteInterview(id) {
     const appointment = {
@@ -58,7 +57,6 @@ export default function Application(props) {
       setState({...state, appointments})
       return res
     })
-    .catch(err => console.log(err))
   }
 
   let dailyAppointments = getAppointmentsForDay(state, state.day);
