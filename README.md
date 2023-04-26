@@ -52,7 +52,11 @@ _A user is able to see the days of the week available for appointment. Time slot
 !['appointment-form-view'](https://raw.githubusercontent.com/n1dddd/scheduler/master/docs/scheduler_show_form.png)
 _A user is able to enter their name into the form, and select an interview. Further, cancel and save buttons allow users to exit the form, and save their chosen appointment time slot.
 
-### Appointment deletion confirmation
+### Appointment Booked Time-Slot
+!['booked-appointment-time-slot'](https://raw.githubusercontent.com/n1dddd/scheduler/master/docs/scheduler_show_new_appointment.png)
+_A booked out time slot for an appointment, with student name, and interview name displayed on the card.
+
+### Appointment Deletion Confirmation
 !['appointment-deletion-confirmation'](https://raw.githubusercontent.com/n1dddd/scheduler/master/docs/scheduler_show_confirm.png)
 _Confirm prompt for user to confirm deletion of interview, with option to cancel.
 
