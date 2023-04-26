@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types"
 import "components/Appointment/styles.scss"
 import InterviewerList from "components/InterviewerList";
 import Button from "components/Button";
