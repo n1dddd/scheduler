@@ -23,7 +23,7 @@ const [state, setState] = useState({
     })
   },[])
 
-  function dayFinder(day) {
+  function dayFinder(day) { //initialize a key value pair to the possible ids for the interview days
     const daysInWeek = {
       Monday: 0,
       Tuesday: 1,
@@ -31,10 +31,15 @@ const [state, setState] = useState({
       Thursday: 3,
       Friday: 4
     }
-    return daysInWeek[day];
+    return daysInWeek[day]; //returns the current day
   }
 
   function bookInterview(id, interview) {
+    /*
+    Assign appointment and appointments spreads of current state, and add the new interview object to the spread
+    */
+
+
     const appointment = {
       ...state.appointments[id],
       interview: {...interview}
@@ -44,7 +49,16 @@ const [state, setState] = useState({
       [id]: appointment
     }
     
+    /*
+    Find the day from state information (set when user selects the day);
+    */
+
+
     const whichDay = dayFinder(state.day);
+
+    /*
+    Assign day spread of current state for days[day being passed in from dayFinder]
+    */
 
     let day = {
       ...state.days[whichDay],
@@ -63,12 +77,17 @@ const [state, setState] = useState({
       }
     }
 
+    /*
+    Set the days variable to current state
+    and then set day to days[day passed in]
+    */
+
     let days = state.days;
     days[whichDay] = day;
 
     return axios.put(`http://localhost:8001/api/appointments/${id}`, {interview:interview})
     .then(res => {
-      setState({...state, appointments, days})
+      setState({...state, appointments, days}) //set the state and return the request
       return res
     })
   }
