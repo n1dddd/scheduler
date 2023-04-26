@@ -1,5 +1,5 @@
-function matchingIds(appointments, appIds) { //need to change naming convention of properties cause used by 2 functions
-    const matchedIds = appIds.map(appId => appointments[appId]);
+function matchingIds(idsArray, Ids) { //take in an ID's array, and return the matching data to passed in IDs
+    const matchedIds = Ids.map(appId => idsArray[appId]);
     return matchedIds;
 }
 
@@ -17,15 +17,15 @@ export function getAppointmentsForDay(state, day) {
 export function getInterviewersForDay(state, day) {
     let interviewerArray = [];
 
-    state.days.map((dayObject) => {
+    state.days.map((dayObject) => { //map over the state.days array, check if day object is equal to the day passed in, push the interviewer id into the empty interviewerArray
         if (dayObject.name === day) {
             return dayObject.interviewers.forEach(interviewerId => interviewerArray.push(interviewerId))
         }
     })
-    return matchingIds(state.interviewers, interviewerArray);
+    return matchingIds(state.interviewers, interviewerArray); //return the matching interviewer ids for the day passed in
 }
 
-export function getInterview(state, interview) {
+export function getInterview(state, interview) { //returns the interviewer information by matching the interviewer to the one currently held in state
 
     if (interview === null) {
         return null;
