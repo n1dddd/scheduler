@@ -84,7 +84,7 @@ Confirm prompt for user to confirm deletion of interview, with option to cancel.
 
 ## Project Stack
 
-__Front-End: React, Axios, JSX, HTML, SASS, Javascript
-__Back-End: Express, Node.js, PostgreSQL
-__Testing: Storybook, Webpack Dev Server, Jest, Cypress
+__Front-End:__ React, Axios, JSX, HTML, SASS, Javascript
+__Back-End:__ Express, Node.js, PostgreSQL
+__Testing:__ Storybook, Webpack Dev Server, Jest, Cypress
 
