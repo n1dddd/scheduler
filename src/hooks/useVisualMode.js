@@ -3,8 +3,6 @@ import { useState} from "react";
 export default function useVisualMode(initial) {
     const [mode, setMode] = useState(initial);
     const [history, setHistory] = useState([initial]);
-    //there was redundant state
-    //make sure history is up to date, since mode relies on it now
 
     function transition(newMode, replace = false) {
         if (replace) {
@@ -19,7 +17,6 @@ export default function useVisualMode(initial) {
             newHistory.push(newMode);
             setHistory((prev) => newHistory);
         }
-        //use prev to clone state, and then add mode with prev spread
     }
     function back() {
         let backArray = [...history]
